@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<button id="btn">Tıkla</button>
+<p id="yazi">Tıkladın mı?</p>
+
+
+    <input id="kullanicimetni" type="text" placeholder="birşeyler..">
+
+
+<script>
+    let tiklamasayisi = 0;
+    const buton = document.getElementById('btn');
+    const yazi = document.getElementById('yazi');
+    buton.addEventListener('click',function(){
+       tiklamasayisi++;
+
+         if(tiklamasayisi == 1){
+            yazi.textContent ='TIKLADIMM';
+        }
+        else if(tiklamasayisi ==2){
+            yazi.textContent ='Merve Dasçi';
+        }
+
+       
+
+
+
+
+    });
+
+     const input = document.getElementById('kullanicimetni');
+
+        input.addEventListener('change',function(){
+          
+            let yazi = this.value;
+            setTimeout(()=> console.log(yazi),10000);
+              
+        });
+
+
+       
+
+        
+
+       
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

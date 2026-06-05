@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="">Adınızı Giriniz:</label>
+            <input id="isim" type="text">
+
+            <label for="">Soyadınızı Giriniz:</label>
+            <input id="soyisim" type="text">
+
+            <label for="">Telefon Numaranızı Giriniz:</label>
+            <input id="tel" type="text">
+
+            <label for="">Fotoğrafınızı Yükleyiniz</label>
+            <input id="img" type="file" accept="file">
+
+            <button>Gönder</button>
+        </div>
+    </form>
+    
+    <div id="sonucAlani">Form henüz gönderilmedi. Bilgileri girip Gönder'e basınız.</div>
+    
+    <script>
+        const form = document.querySelector('form');
+
+       
+        form.addEventListener('submit', function(e) {
+            
+            e.preventDefault();
+
+            let input1 = document.getElementById('isim').value;
+            let input2 = document.getElementById('soyisim').value;
+            let input3 = document.getElementById('tel').value;
+            
+            
+            let dosyaKontrol = document.getElementById('img').files;
+            let input4 = dosyaKontrol.length > 0 ? dosyaKontrol[0].name : "Fotoğraf seçilmedi";
+
+            
+            let sablon = `
+                <h3>Girilen Bilgiler:</h3>
+                <p><strong>Ad:</strong> ${input1}</p>
+                <p><strong>Soyad:</strong> ${input2}</p>
+                <p><strong>Telefon:</strong> ${input3}</p>
+                <p><strong>Fotoğraf:</strong> ${input4}</p>
+            `;
+
+            
+            document.getElementById('sonucAlani').innerHTML = sablon; 
+        });
+    </script>
+</body>
+</html>

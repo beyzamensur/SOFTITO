@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
+    *///Canlı sayacın özelliği: + / - butonları ile sayıyı değiştirdiğimizde + yönünde rengin koyulaşarak yeşilin tonlarına göre değişirken
+    - yönünde kırmızı renk için aynı işlemi yapar. */
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Canlı Sayaç</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div id="box" class="bg-white p-8 rounded-xl shadow text-center transition-colors duration-300">
-        <h1 class="text-4xl font-bold text-red-300 my-4 mb-2">Canlı Sayaç</h1>
-        <div id="number" class="text-4xl text-blue-300 my-4 ">0</div>
+    <div id="box" class="bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300">
+        <h1 class="text-4xl font-bold text-gray-700 my-4 mb-2">Canlı Sayaç</h1>
+        <div id="number" class="text-6xl font-black text-gray-800 my-4">0</div>
         <div class="flex gap-4 justify-center">
-            <button onclick="change(-1)" class="bg-red-500 text-white px-4 rounded font-bold">-</button>
-            <button onclick="change(1)"  class="bg-green-500 text-white px-4 rounded font-bold">+</button>
+            <button onclick="change(-1)" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-bold">-</button>
+            <button onclick="change(1)" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-bold">+</button>
         </div>
     </div>
 
@@ -20,21 +22,21 @@
         let count = 0;
         const box = document.getElementById('box');
         const number = document.getElementById('number');
-        function change(e){
+
+        function change(e) {
             count += e;
-            console.log(count);
-            number.textContent =count;  
+            number.textContent = count;
 
-            if(count>0){
-                box.className="bg-green-100 p-8 rounded-xl shadow text-center transition-colors duration-300"
-            }else if(count < 0){
-                box.className="bg-red-100 p-8 rounded-xl shadow text-center transition-colors duration-300"
-            }
-            else{box.className="bg-white-100 p-8 rounded-xl shadow text-center transition-colors duration-300"
-
+            let intensity = Math.min(Math.abs(count) * 100, 900);
+            
+            if (count > 0) {
+                box.className = `bg-green-${intensity} p-8 rounded-xl shadow-lg text-center transition-all duration-300`;
+            } else if (count < 0) {
+                box.className = `bg-red-${intensity} p-8 rounded-xl shadow-lg text-center transition-all duration-300`;
+            } else {
+                box.className = "bg-white p-8 rounded-xl shadow-lg text-center transition-all duration-300";
             }
         }
-
     </script>
 </body>
 </html>

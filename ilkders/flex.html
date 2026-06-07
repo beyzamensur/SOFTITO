@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> //resposive tasarım için 4 temel yöntem sayfa altındaki notlar kısmında
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +12,7 @@
         <div class="flex flex-col gap-4">
             <div>
                 <span class="text-xs text-slate-400 block mb-1">flex gap-4(yanyana yerleşim)</span>
-                <div class="flex flex-col md:flex-row gap-4 bg-slate-200 p-3 border rounded">
-                    /*responsive tasarımda kutuların alt alta gelmesi için 
-                    1. yöntem : kutuları kapsayan div class'ının içine (15.satır) flex yerine flex-col md:flex-row sınıflarını eklemek.*/
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-200 p-3 border rounded">
                     <div class="bg-blue-500 text-white p-3 rounded">Kutu1</div>
                     <div class="bg-yellow-500 ext-white p-3 rounded">Kutu2</div>
                     <div class="bg-red-500 ext-white p-3 rounded">Kutu3</div>
@@ -29,8 +27,28 @@
             </div>
         </div>
     </div>
-     
-    
+
+ /* RESPONSIVE TASARIM İÇİN 4 TEMEL YÖNTEM
+*/
+/* 1. Yöntem: Breakpoint Kullanımı (Flex-direction değişimi)
+   Kapsayıcıya 'flex-col md:flex-row' eklenir. 
+   Mantık: Mobilde (küçük ekran) 'flex-col' ile alt alta, 
+   md (768px) ve üzerinde 'flex-row' ile yan yana dizilim sağlanır. */
+
+/* 2. Yöntem: Flex-wrap ve Sınırlandırma
+   Kapsayıcıya 'flex-wrap' eklenir. 
+   Mantık: Kutulara 'min-w-[200px]' (minimum genişlik) verilir. 
+   Ekran daraldığında kutular yan yana sığmazsa otomatik olarak alt satıra geçer. */
+
+/* 3. Yöntem: Grid Sistemi
+   Kapsayıcıya 'grid grid-cols-1 md:grid-cols-3' eklenir.
+   Mantık: Grid yapısı kullanılarak kolon sayısı ekran boyutuna göre 
+   dinamik olarak 1'den 3'e çıkarılır. (ben bu yöntemi kullandım.) */
+
+/* 4. Yöntem: Görünürlük Kontrolü (Conditional Rendering)
+   Yapılar 'hidden' ve 'md:flex' sınıfları ile kontrol edilir.
+   Mantık: Mobilde görünen blok ile masaüstünde görünen bloğu ayrı ayrı 
+   tanımlayıp, ekran boyutuna göre birini gizleyip diğerini gösteririz. */
 
 </body>
 </html>

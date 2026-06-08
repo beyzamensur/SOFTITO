@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body
+    class="bg-gray-300 text-gray-900 flex flex-col p-8 gap-6 items-center justify-center min-h-screen"
+  >
+    <div class="text-center max-w-md">
+
+      <div>
+        <h1 class="text-2xl font-bold mb-2">Fiyatlandırma Kartı Flex Column</h1>
+        <p class="text-xs text-gray-500">
+          Kart elemanları üst üste sıralamak için flex-col, öne çıkan rozeti en
+          üstte görmek için ise order-first sınıfı kullanacağız
+        </p>
+      </div>
+
+      <div class="w-full bg-white max-w-xs border-gray-200 rounded-2xl flex flex-col gap-4 p-6  shadow-md">
+        <div class=" px-2 py-1 bg-indigo-100 text-indigo-600 border border-indigo-200 bg-indigo-75 rounded-full self-start order-first uppercase font-bold tracking-wide text-[9px]">
+           En Popüler Paket(order-first)
+        </div>
+
+        <div>
+            <h2 class="text-sm tracking-wide font-bold p-2 text-gray-800 uppercase">Standart paket</h2>
+            <p class="text-2xl font-extrabold mt-1 text-gray-900">99TL/Ay</p>
+        </div>
+
+        <div class="text-xs text-gray-500 space-y-3 border border-gray-100 p-4 bg-gray-200 rounded-lg">
+            <p>1 Sınırsız Proje</p>
+            <p>25 tane kişisel proje</p>
+            <p>Grup Çalışması</p>
+        </div>
+        <button class="bg-indigo-500 text-white py-2
+        text-xs font-bold rounded-lg hover:bg-indigo-600">Satın Al</button>
+      </div>
+
+    </div>
+  </body>
+</html>

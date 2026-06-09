@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-md bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold mb-4 text-pink-400">Metodlar :</h2>
+        <div id="sonuc" class="text-sm text-gray-800 leading-relaxed space-y-2 "></div>
+    </div>
+
+    <script>
+
+        const kutu = document.getElementById("sonuc");
+        function yaz(yazi){
+            kutu.innerHTML += `<p class="border-b border-gray-200" >${yazi}</p>`;
+        }
+
+        let yazi ="Metodların kullanımı";
+        yaz("1. trim(): " + yazi.trim()); 
+        //trim-->string'in başındaki ve sonundaki boşlukları siler
+
+        let dizi = yazi.trim().split(" ");
+        yaz("2. split(): " + dizi);
+        //split-->string'i istediğimiz karaktere göre böler ve bir dizi oluşturur
+        
+        yaz("3. toUpperCase(): " + yazi.toUpperCase());
+        //toUpperCase-->string'i büyük harfe çevirir
+        yaz("4. toLowerCase(): " + yazi.toLowerCase());
+        //toLowerCase-->string'i küçük harfe çevirir
+
+        let sayilar =[15 , 44 , 32 ];
+        sayilar.push(55);
+        yaz("5. push(): " + sayilar);
+        //push-->dizinin sonuna eleman ekler
+
+        let sayi = "15.66";
+        yaz("6. parseFloat(): " + parseFloat(sayi));
+        //parseFloat-->string'i ondalık sayıya çevirir
+
+        yaz("7. join(): " + sayilar.join("-"));
+        //join-->diziyi istediğimiz karakterle birleştirir ve string yapar
+
+        yaz("8. map(): " + sayilar.map(x => x * 2));
+        //map-->dizinin her elemanına istediğimiz işlemi uygulayarak yeni bir dizi oluşturur
+
+        yaz("9. filter(): " + sayilar.filter(x => x > 30));
+        //filter-->dizinin her elemanına istediğimiz koşulu uygulayarak yeni bir dizi oluşturur
+
+        yaz("10. find(): " + sayilar.find(x => x > 20));
+        //find-->dizinin her elemanına istediğimiz koşulu uygulayarak ilk eşleşen elemanı döndürür
+
+        yaz("11. reduce(): " + sayilar.reduce((a,b) => a + b));
+        //reduce-->dizinin her elemanına istediğimiz işlemi uygulayarak tek bir değer döndürür
+
+        yaz("12. includes(): " + sayilar.includes(44));
+        //includes-->dizinin içinde istediğimiz elemanın olup olmadığını kontrol eder ve boolean döndürür
+
+        yaz("13. every(): " + sayilar.every(x => x > 15));
+        //every-->dizinin her elemanına istediğimiz koşulu uygulayarak tüm elemanların koşulu sağlayıp sağlamadığını kontrol eder ve boolean döndürür
+
+        yaz("14. some(): " + sayilar.some(x => x > 30));
+        //some-->dizinin her elemanına istediğimiz koşulu uygulayarak en az bir elemanın koşulu sağlayıp sağlamadığını kontrol eder ve boolean döndürür
+
+        let sayac = 0;
+        let zamanlayici = setInterval(() => {
+            yaz("Sayaç: " + sayac);
+            sayac++;
+            if(sayac > 5){
+                clearInterval(zamanlayici);
+                yaz("Sayaç durduruldu");
+            }
+        }, 1000);
+        //setInterval-->belirli bir süre aralığında istediğimiz işlemi tekrarlar
+        //clearInterval-->setInterval ile oluşturulan zamanlayıcıyı durdurur
+
+
+        
+        
+        
+        
+        
+        
+        
+        </script>
+</body>
+</html>

@@ -16,7 +16,7 @@
       
         const bekle = (ms) => new Promise(resolve => setTimeout(resolve, ms)); //belirtilen süre sonunda resolve edilecek
 
-        btn.addEventListener('click', async () => {
+        btn.addEventListener('click', async () => { //fonksiyonun başına async koymazsak içindeki await çalışmaz
             durum.textContent = "İşlem başladı...";
 
         

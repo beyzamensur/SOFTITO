@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>async/await kullanımı </title>
+</head>
+<body>
+
+    <button id="btn">İşlemi Başlat</button>
+    <p id="durum">Hazır</p>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const durum = document.getElementById('durum');
+
+      
+        const bekle = (ms) => new Promise(resolve => setTimeout(resolve, ms)); //belirtilen süre sonunda resolve edilecek
+
+        btn.addEventListener('click', async () => {
+            durum.textContent = "İşlem başladı...";
+
+        
+            await bekle(5000); 
+            durum.textContent = "5 saniye geçti, veriler işleniyor...";
+
+            
+            let sayac = 4;
+            const interval = setInterval(() => {
+                sayac--;
+                durum.textContent = `Geri sayım: ${sayac}`;
+                if (sayac === 0) {
+                    clearInterval(interval);
+                    durum.textContent = "İşlem tamamlandı!";
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
